@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='leaflet_render',
-    version='1.0.0',
+    version='1.0.1',
     url='https://github.com/jacoduplessis/leaflet_render',
     author='Jaco du Plessis',
     author_email='jaco@jacoduplessis.co.za',

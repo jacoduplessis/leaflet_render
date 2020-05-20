@@ -18,14 +18,6 @@ TEMPLATE = string.Template("""
   <meta charset="UTF-8">
    <style>$css</style>
    <script>$js</script>
-    <!-- 
-   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-   crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-   crossorigin=""></script>
-   -->
    <style>
     body {
         margin: 0;
@@ -65,12 +57,7 @@ def render_geojson(geojson: str, width=800, height=600, chromium_path=None):
         return b''
 
     markup = tempfile.NamedTemporaryFile(mode='wb', suffix='.html')
-    print(markup.name)
     markup.write(TEMPLATE.substitute(geojson=geojson, js=leaflet_js, css=leaflet_css).encode('utf-8'))
-
-    # url = 'data:text/html;base64,' + base64.b64encode(
-    #     TEMPLATE.substitute(geojson=geojson).encode('utf-8')
-    # ).decode()
 
     with tempfile.NamedTemporaryFile(mode='rb') as tmp:
         try:
