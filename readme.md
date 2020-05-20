@@ -6,7 +6,13 @@ Render geojson using headless Chromium and leaflet.
 
 ![](preview.png)
 
-## Usage:
+## Install
+
+```
+pip install leaflet_render
+```
+
+## Usage
 
 ```
 from leaflet_render import render_geojson
